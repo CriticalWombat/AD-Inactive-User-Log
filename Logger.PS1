@@ -5,8 +5,8 @@
 .DESCRIPTION
 	Script will check the local machine for the proper logging sources and if not found it will create them under the 'Application' log with the source 'SIEM-PS-Script'
 	Event ID produced is 65535
-	Script enumerates all user accounts that are enabled, but haven't had a logon event in 90 or more days. Users that match this pattern are then named in the event log which will be collected and sent to the siem supervisor for visibility.
-
+	Script enumerates all user accounts that are enabled, but haven't had a logon event in 90 or more days.
+	Users that match this pattern are then named in the event log which will be collected and sent to the siem supervisor for visibility.
 .EXAMPLE
 	.\Logger.ps1
 	Implement in Task Scheduler and authenticate via service account since the New-EventLog cmdlet requires elevation.
@@ -14,9 +14,8 @@
 	Author:		Luke Von Hagel (lvonhagel@brashbit.io)
 
 	License:	This script is distributed under "THE BEER-WARE LICENSE" (Revision 42):
-				As long as you retain this notice you can do whatever you want with this stuff.
-				If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.
-
+			As long as you retain this notice you can do whatever you want with this stuff.
+			If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.
 #>
 try {
 	New-EventLog -LogName "Application" -Source "SIEM-PS-Script" -ErrorAction Stop
